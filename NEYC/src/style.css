@@ -318,20 +318,8 @@ nav{
  */
 
 
-
-
-
-
-/* === desktop hide === */
- .loginboxmoblie{
-  display: none;
-}
-
 @media screen and (max-width: 768px) {
-/* === moblie hide === */
-.loginlink{
-  display: none;
-}
+
 
 /* === text === */
 h1{
@@ -400,7 +388,7 @@ svg{
 /* ===hearder leftwrap === */
 .loge{
   margin: 0.2rem 0rem 0.2rem 1rem;
-  width:50%;
+  width: 60%;
 }
 
 .hearder .leftwrap{
@@ -419,14 +407,7 @@ svg{
   align-items: center;
 }
 
-.loginboxmoblie{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color-second);
-  width: 15%;
-  min-height: 55px;
-}
+
 
 /* search */
 .search{
@@ -453,8 +434,8 @@ input[type="search"] {
 /* ===hearder rightwrap === */
 .setcontrol{
   position: fixed;
-  top:0;
-  right: 20%;
+  top:0.5%;
+  right: 5%;
   overflow: hidden;
   display: flex;
   justify-content: flex-end;
