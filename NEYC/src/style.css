@@ -851,6 +851,10 @@ nav{
 
 /* === search filter === */
 /* search filter fieldsets */
+.cardfilter{
+  margin-bottom: 1.2em;
+}
+
 .fileterwrap{
   position: relative;
 }
