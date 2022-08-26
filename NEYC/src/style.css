@@ -830,7 +830,7 @@ nav{
 }
 
 .guidedaside .card:not(:first-child ){
-  width: 48%;
+  width: 47%;
   height: 7em;
 }
 
