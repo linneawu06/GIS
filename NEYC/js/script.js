@@ -1,6 +1,6 @@
  /* === <!-- maincontainer --> box-menuchange === */
 const changeBox = document.querySelector(".mainbody");
-const changeBtns = document.querySelectorAll(".menuClick");
+const changeBtns = document.querySelectorAll(".menuclick");
 const changeContents = document.querySelectorAll(".boxcontainer");
 
 
@@ -22,7 +22,7 @@ changeBox.addEventListener("click", function (e) {
 });
 
 //  /* === <!-- secondcontainer --> box-menuchange === */
-// const hideClick = document.querySelector(".menuClick");
+// const hideClick = document.querySelector(".menuclick");
 // const secondContents = document.querySelector(".secondcontainer");
 // hideClick.addEventListener("click",function(){
 //   if (secondContents.classList.contains("hide")){

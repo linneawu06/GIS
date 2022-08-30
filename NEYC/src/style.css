@@ -2,8 +2,6 @@
 /* all========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&display=swap');
 
-
-
 :root {
 --color-primary: #91d6f3;
 --color-second: #388FB4;
@@ -18,7 +16,7 @@
 --color-gray2: #EBEBEB;
 --color-gray3: #C1C1C1;
 --color-dark: #424242;
---color-hover:linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0) 58.85%, rgba(265, 265, 265, 0.6) 100%, rgba(265, 265, 265, 0.8) 100%);
+--color-light-hover:linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0) 58.85%, rgba(265, 265, 265, 0.6) 100%, rgba(265, 265, 265, 0.8) 100%);
 --color-secondop: rgba(56,143,180, 0.5);
 --color-darkop: rgba(66,66,66, 0.2);
 --color-transparent: rgba(0, 0, 0, 0);
@@ -161,6 +159,7 @@ button{
   filter: var(--shadow);
   background-color:var(--color-success);
   align-items: center;
+  justify-content: center;
   display: flex;
   border: none;
   outline: 0;
@@ -183,6 +182,27 @@ button:active{
   color: var(--color-light);
 }
 
+.secondbtn {
+  background-color:var(--color-fourth);
+  box-shadow: var(--shadow);
+  color: var(--color-light);
+}
+
+.secondbtn:hover{
+  background-color:var(--color-primary);
+  color: var(--color-fourth);
+}
+
+.fourthbtn{
+  background-color:var(--color-second);
+  color: var(--color-light);
+}
+
+.fourthbtn:hover{
+  background-color:var(--color-primary);
+  color: var(--color-fourth);
+}
+
 /* nostyle btn */
 .nostylebtn{
   background-color: var(--color-transparent);
@@ -198,7 +218,7 @@ button:active{
 }
 
 .nostylebtn:hover,.nostylebtn:focus,.nostylebtn:active{
-  background: var(--color-hover);
+  background: var(--color-light-hover);
   border: 0px;
   border-radius: 0em;
   -moz-border-radius: 0em; 
@@ -234,25 +254,25 @@ a.btn{
   text-decoration:none;
     /* <!-- display: inline-block;
   position: relative; --> */
+  box-shadow: var(--shadow);
 }
+
 /* defaultbtn a btn */
 a.defaultbtn {
   color:var(--color-light);
   background-color:var(--color-second);
-  box-shadow: var(--shadow);
 }
 
 a.defaultbtn:hover {
   background-color:var(--color-success-dark);
 }
 
-/* secondtbtn a btn */
-a.secondtbtn {
+/* secondbtn a btn */
+a.secondbtn {
   background-color:var(--color-fourth);
-  box-shadow: var(--shadow);
 }
 
-a.secondtbtn:hover,.defaultbtn:hover{
+a.secondbtn:hover,.defaultbtn:hover{
   background-color:var(--color-primary);
   color: var(--color-fourth);
 }
@@ -260,7 +280,6 @@ a.secondtbtn:hover,.defaultbtn:hover{
 /* thridbtn a btn */
 a.thridbtn{
   background-color: var(--color-success);
-  box-shadow: var(--shadow);
 } 
   
 a.thridbtn:hover{
@@ -368,6 +387,16 @@ input[type="search"]:focus{
   z-index: 0;
 }
 
+/* === icon === */
+.icon{
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  height: 50px;
+  width: 50px;
+  margin: 0;
+  }
+
 
 /* === modify === */
 /** ========== main header ========== **/
@@ -467,25 +496,48 @@ nav{
 } 
 
 /* === ulwrap nav === */
-.ulwrap1 .menuClick:first-of-type{
+.menuclick::before{
+  content: "";
+  height: 60%;
+  width: 60%;
+  top:18%;
+  left: 20%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.menuclick{
   padding: 1em;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 40px;
   color: var(--color-light);
   font-weight: 800;
+  position: relative;
+  padding-left: 3em;
+  font-size: 1.25rem;
+}
+
+.ulwrap1 .menuclick:first-of-type{
   background-color: var(--color-success);
 }
 
-.ulwrap2 .menuClick{
-  padding: 1em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  color: var(--color-light);
-  font-weight: 800;
+.guidedicon::before {
+  background-image: url( './assets/icon/menuicon/guided_map-location-dot-solid.svg' )  ;
+}
+
+.attractionicon::before {
+  background-image: url( './assets/icon/menuicon/attractions.svg' )  ;
+}
+
+.touricon::before {
+  background-image: url( './assets/icon/menuicon/tour.svg' )  ;
+}
+
+.integrityicon::before {
+  background-image: url( './assets/icon/menuicon/itinerary_route-solid.svg' )  ;
 }
 
 
@@ -523,6 +575,12 @@ nav{
 }
   
 /** ========== main  ========== **/
+/***display hide***/
+.boxtitelwrap .closebtn::before{
+  display: none;
+}
+/***hide end***/
+
 /* === closebtn === */
 .closebtn::before{
   content: "\2190";
@@ -574,7 +632,7 @@ nav{
 .secondcontainer .open{
   visibility:visible;
   display: block;
-  width:14%;
+  width:15%;
 }   
 
 /***js secondcontainer end***/
@@ -622,7 +680,14 @@ nav{
   /* display: flex; */
   /* display: grid; */
   /* grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); */
+} 
+
+.cardsplace .icon{
+  height: 25px;
+  width: 25px;
+  background-size: 20px;
 }
+
 
 .card {
   display: inline-block;
@@ -635,6 +700,8 @@ nav{
   -o-transition: all 0.3s 0s ease-in;
   overflow: hidden;
   flex-direction: row;
+  width: 100%;
+  height: 100%;
 }
 
 /* covercardimg */
@@ -663,7 +730,7 @@ nav{
 }
 
 
- .cardimgholder{
+.cardimgholder{
   overflow: hidden;
   height: 10em;
 }
@@ -691,10 +758,12 @@ nav{
   background-color: var(--color-light);
 }
 
-/* card liitem*/
-.card .liitem svg{
-  padding: 0.2em;
+.cardcontent ul{
+  margin-bottom: 1em;
 }
+
+/* card liitem*/
+
 
 .card .liitem{
   border:1px solid var(--color-second);
@@ -750,12 +819,13 @@ nav{
 }
 
 .cardactions {
+  display: grid;
+  width: 100%;
   text-align: center;
 } 
 
 .cardflap {
   background: var(--color-second);
-  color: var(--color-light);
   width: 100%;
   transform-origin: top;
   padding: 0em;
@@ -804,12 +874,12 @@ nav{
 }
 
 .menucaption:before{
-  content: "\007C";
+  content: "\259A";
   padding-right: 0.3em;
 }
 
 
-/* === guidedaside === */
+/* ===* guidedaside *=== */
 /* === closebtn === */
 .guidedaside .closebtn::before{
   color:var(--color-success);
@@ -1030,13 +1100,179 @@ fieldset{
 
 
 /* ===* touraside *=== */
+
+.touraside{
+  padding-left: 0em;
+  padding-right: 0em;
+  padding-bottom: 0em;
+}
+
+.touraside .boxtitelwrap{
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
 .touraside   .covercardimg{
   height: 10em;
 }
 
+/* changeitem */
+.changewrap{
+  margin-bottom: 1.2em;
+  margin-right: 1em;
+  margin-left: 1em;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: var(--shadow2);
+}
+
+
+.changelabel{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 30px;
+  background-color: var(--color-second);
+  text-align: center;
+  
+}
+
+.changelabel::before{
+  content:"旅遊探索" ;
+  color:var(--color-primary);
+  position: absolute;
+  left: 8%;
+  top: 10%;
+  z-index: 1;
+  
+}
+
+
+.changelabel::after{
+  content:"交通資訊" ;
+  position: absolute;
+  position: absolute;
+  left: 65%;
+  top: 10%;
+  color:var(--color-gray1);
+}
+
+.changeitem{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  width:49%;
+  height: 30px;
+  top:0px;
+  left: 0px;
+  background: var(--color-fourth);
+  transition: color 0.2s;
+  -webkit-transition: color 0.2s;
+  -moz-transition: color 0.2s;
+  -o-transition: color 0.2s;
+} 
+
+
+.changeitem:before{
+  position: absolute;
+  top: 0px;
+  left: -300px;
+  display: block;
+  border: 15px solid transparent;
+  border-right: 0px solid  var(--color-second);
+  content: '';
+  
+}
+
+.changeitem:after{
+  position: absolute;
+  top:0px;
+  right: -30px;
+  display: block;
+  border: 15px solid transparent;
+  border-left: 15px solid var(--color-fourth);
+  content: '';
+  
+}
+
+
+input[type=checkbox]:checked + .changelabel:before{
+  color:var(--color-gray1);
+  
+}
+
+input[type=checkbox]:checked + .changelabel:after{
+  color:var(--color-primary);
+  
+} 
+
+ input[type=checkbox]:checked + .changelabel .changeitem {
+  left: 55%;
+  background-color: var(--color-fourth);
+  
+}
+
+input[type=checkbox]:checked + .changelabel .changeitem:before{
+  left: -35px;
+  border-right-width: 20px;
+  border-right-color: var(--color-fourth);
+  
+}
+
+
+
+/* changcontent */
+.changcontent{
+  background-color: var(--color-fourth);
+  height: 100%;
+  padding: 1.2em 1em 3em 1em;
+  box-shadow: inset var(--shadow2);
+}  
+
+
+
+/* === tourasid hotel=== */
+/*cardhotel search card liitem*/
+.cardhotel .liitem{
+  border: 0px solid var(--color-second);
+  display: flex;
+}
+
+.priceiconsearch{
+  background-image: url(../src/assets/icon/cardposticon/price_searchcard_monetizationon.svg);
+}
+/*cardhotel search card liitem end*/
+
+.cardhotel .cardcontent{
+  background-color: var(--color-fourth);
+}
+
+.cardhotel .cardcontent .postarea,.cardhotel .cardcontent .posttitle{
+  color: var(--color-light);
+}
+
+.cardhotel .cardcontent .liitem p{
+  color: var(--color-thrid);
+}
+
+
+/* === tourasid food=== */
+/*= cardfood search card liitem =*/
+.cardfood .cardcontent{
+  background: linear-gradient(0deg, var(--color-thrid) 0%,  rgba(235, 235, 235, 0) 20%), var(--color-thrid);
+}
+/*cardfood search card  liitem end*/
+
+
+
+
 
 
 /* ===* secondcontainer *=== */
+
 /* === card === */
 .cardcontentholder{
   margin:1.2em 0.9em 0.6em;
@@ -1090,11 +1326,93 @@ fieldset{
   margin: 1.8em 0em;
 }
 
+.cardaddress .liitem{
+  display: flex;
+  align-items: center;
+}
+
+.cardaddress .liitemcontent{
+  margin-left: 0.6em;
+}
+
+.cardaddress .icon {
+  margin: 0;
+}
+
+/* googlemap item */
+
+.cardaddress .googlemapitem{
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.cardaddress .googlemapitem p{
+  margin-top: 0.6em;
+  margin-bottom: 0.3em;
+}
+
+.cardaddress .googlemapbtn{
+  display: grid;
+  width: 100%;
+  text-align: center;
+  background-color: var(--color-transparent);
+}
+
+.cardaddress .googlemapbtn .btn{
+  color:var(--color-second);
+  box-shadow: var(--shadow-transparent);
+}
+
+.cardaddress .googlemapbtn::after{
+  content: "";
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--color-second);
+  transition: all all 0.5s 0.5s ease-in;
+  -webkit-transition: all 0.5s 0.5s ease-in;
+  -moz-transition: all 0.5s 0.5s ease-in;
+  -o-transition: all 0.5s 0.5s ease-in;
+}
+
+.cardaddress .googlemapbtn:hover::after{
+  width: 20%; 
+  transition: all all 0.5s 0.5s ease-in;
+  -webkit-transition: all 0.5s 0.5s ease-in;
+  -moz-transition: all 0.5s 0.5s ease-in;
+  -o-transition: all 0.5s 0.5s ease-in;
+}
+
+.cardaddress .googlemapbtn .btn::after{
+  content: "\2192";
+  width: inherit;
+  height: 100%;
+  margin-left:0.3em ;
+  color:var(--color-second);
+}
+
+/* googlemap item end */
+
 .cardaddress p{
   color: var(--color-fourth);
   font-weight: 800;
-  margin-left: 0.3rem;
 }
+
+/* card attraction card address  icon */
+.placeicon{
+  background-image: url( './assets/icon/cardposticon/place.svg' );
+}
+
+.accesstimeicon{
+  background-image: url( './assets/icon/cardposticon/accesstime.svg' );
+}
+
+.ticketicon{
+  background-image: url( './assets/icon/cardposticon/ticketsolid.svg' );
+}
+
+
 
 /* card item */
 .postitemcaption {
@@ -1102,59 +1420,6 @@ fieldset{
   padding-left: 0.3em;
   color: var(--color-fourth);
   border-left:0.3em solid var(--color-fourth); 
-}
-
-
-
-
-
-
-
-/* ===* secondcontainer card hotel *=== */
-.cardhotel .cardimgholder{
-  position: relative;
-}
-
-.postsort{
-  background-color: var(--color-dark);
-  position: absolute;
-  top:0;
-  left:0;
-  margin-left: 0.9em;
-  padding: 0.9em 0.9em 2.7em 0.9em;
-  text-decoration:none;
-  background: -webkit-linear-gradient(120deg, var(--color-transparent) 45%,var(--color-second) 45%),
-  -webkit-linear-gradient(60deg, var(--color-transparent) 45%,var(--color-second) 45%); 
-  }
-
-/*cardhotel card liitem*/
-.cardhotel .liitem{
-  border: 0px solid var(--color-second);
-  display: flex;
-}
-
-.cardhotel .liitem svg{
-  padding: 0em;
-  color: var(--color-light);
-}
-/*cardhotel card liitem end*/
-
-.cardhotel .cardcontent{
-  background-color: var(--color-fourth);
-}
-
-.cardhotel .cardcontent .postarea,.cardhotel .cardcontent .posttitle{
-  color: var(--color-light);
-}
-
-.cardhotel .cardcontent .liitem p{
-  color: var(--color-thrid);
-}
-
-
-/*= cardfood card liitem =*/
-.cardfood .cardcontent{
-  background: linear-gradient(0deg, var(--color-thrid) 0%,  rgba(235, 235, 235, 0) 20%), var(--color-thrid);
 }
 
 /* === card tab === */
@@ -1180,6 +1445,7 @@ fieldset{
 }
 
 /* panel liitem*/
+
 .panel .liitem {
   display: inline-block;
   text-align: center;
@@ -1187,28 +1453,33 @@ fieldset{
   margin:0 0 1.2em 0 ;
 }
 
-.panel .liitem svg{
-  background-color: var(--color-light);
-  box-shadow: var(--shadowinset2);
-  padding: 0.4em;
-  border-radius: var(--border-radius-ellipse);
+.panel .oddliitem{
+  width: 33.3%;
+  text-align: center;
 }
 
+.panel .icon{
+  background-color: var(--color-light);
+  box-shadow: var(--shadowinset2);
+  /* padding: 0.4em; */
+  border-radius: var(--border-radius-ellipse);
+  margin: 0 auto 0.6em;
+}
 
 /* panel state*/
   
-.posttabs .state{
+.posttabs .state, .state{
   position: absolute;
   left: -10000px;
 }
   
-.flex-tabs{
+.flextabs{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
              
-.flex-tabs .panel{
+.flextabs .panel{
   background-color: var(--color-second);
   padding: 0.6em;
   min-height: 100%;
@@ -1217,7 +1488,7 @@ fieldset{
   flex-basis: auto;
 }
 
-.flex-tabs .tab{
+.flextabs .tab{
   flex-grow: 1;
   border-radius: 0.6em 0.6em 0em 0em ;
   max-height:40px;
@@ -1230,36 +1501,135 @@ fieldset{
   cursor: hand;
 }  
 
-.flex-tabs .tab:nth-child(even){
+.flextabs .tab:nth-child(even){
   margin: 0em 0.3em 0em 0.3em;
 }
 
-.flex-tabs .tab:hover{
+.flextabs .tab:hover{
   background-color: var(--color-primary);
 }
     
 #tab-one:checked ~ .tabs #tab-one-label,
 #tab-two:checked ~ .tabs #tab-two-label,
 #tab-three:checked ~ .tabs #tab-three-label,
-#tab-four:checked ~ .tabs #tab-four-label{
+#tab-one-food:checked ~ .tabs #tab-one-food-label,
+#tab-one-hotel:checked ~ .tabs #tab-one-hotel-label,
+#tab-two-hotel:checked ~ .tabs #tab-two-hotel-label{
   background-color: var(--color-second);
-  cursor: default;
   color: var(--color-light);
 }
 
 #tab-one:checked ~ .tabs #tab-one-panel,
 #tab-two:checked ~ .tabs #tab-two-panel,
 #tab-three:checked ~ .tabs #tab-three-panel,
-#tab-four:checked ~ .tabs #tab-four-panel{
+#tab-one-food:checked ~ .tabs #tab-one-food-panel,
+#tab-one-hotel:checked ~ .tabs #tab-one-hotel-panel,
+#tab-two-hotel:checked ~ .tabs #tab-two-hotel-panel{
   display: block;
 }
 
 
-/***display hide***/
-.boxtitelwrap .closebtn::before{
-  display: none;
+/* card attraction tab icon */
+.bikeicon{
+  background-image: url( './assets/icon/tabicon/bike.svg' );
 }
-/***hide end***/
+
+.infoicon{
+  background-image: url( './assets/icon/tabicon/info.svg' );
+}
+
+.wcicon{
+  background-image: url( './assets/icon/tabicon/wc.svg' );
+}
+
+.musshowericon{
+  background-image: url( './assets/icon/tabicon/musshower_shower-solid.svg' );
+}
+
+.musprayingicon{
+  background-image: url( './assets/icon/tabicon/muspraying_hands-praying-solid.svg' );
+}
+
+.accwcicon{
+  background-image: url( './assets/icon/tabicon/accessiblewc.svg' );
+}
+
+.acclocalparkingicon{
+  background-image: url( './assets/icon/tabicon/accessiblelocalparking.svg' );
+}
+
+.accwheelchairicon{
+  background-image: url( './assets/icon/tabicon/accessiblewheelchair.svg' );
+}
+  
+.accblehandcaricon{
+  background-image: url( './assets/icon/tabicon/accessiblehandcar.svg' );
+}
+
+      
+/* ===* secondcontainer card tourasid hotel *=== */
+.cardhotel .cardimgholder{
+  position: relative;
+}
+
+.postsort{
+  background-color: var(--color-dark);
+  position: absolute;
+  top:0;
+  left:0;
+  margin-left: 0.9em;
+  padding: 0.9em 0.9em 2.7em 0.9em;
+  text-decoration:none;
+  background: -webkit-linear-gradient(120deg, var(--color-transparent) 45%,var(--color-second) 45%),
+  -webkit-linear-gradient(60deg, var(--color-transparent) 45%,var(--color-second) 45%); 
+  }
+
+
+/* card hotel card address icon */
+.priceicon{
+  background-image: url( './assets/icon/cardposticon/price_monetizationon.svg' );
+}
+
+.roomicon{
+  background-image: url( './assets/icon/cardposticon/room_bed-solid.svg' );
+}
+
+
+
+/* cardhotel tab icon */
+.coffeeicon{
+  background-image: url( './assets/icon/tabicon/coffee-mugsaucersolid.svg' );
+}
+
+.restauranticon{
+  background-image: url( './assets/icon/tabicon/restaurant.svg' );
+}
+
+.motorcycleicon{
+  background-image: url( './assets/icon/tabicon/motorcycle-solid.svg' );
+}
+
+.caricon{
+  background-image: url( './assets/icon/tabicon/car-solid.svg' );
+}
+
+.busicon{
+  background-image: url( './assets/icon/tabicon/bus-solid.svg' );
+}
+
+
+
+/* ===* secondcontainer card tourasid food *=== */
+
+/* cardfood tab icon */
+.localparkicon{
+  background-image: url( './assets/icon/cardposticon/localparking.svg' );
+}
+
+.creditcardicon{
+  background-image: url( './assets/icon/tabicon/creditcard.svg' );
+}
+
 
 
 
@@ -1492,14 +1862,22 @@ fieldset{
   }
 
   /* === ulwrap nav === */
-  .ulwrap1 .menuClick:first-of-type {
+  /* .ulwrap1 .menuclick:first-of-type {
     height: 40px;
+  } */
+
+  .menuclick::before{
+    top:20%;
+    left: 30%;
   }
 
-  .ulwrap2 .menuClick{
-    width: 100%;
+  .menuclick{
+    font-size: 1.2rem;
   }
   
+  .ulwrap2 .menuclick{
+    width: 100%;
+  }
 
   /** ========== main  ========== **/
   /* === box === */
@@ -1531,12 +1909,10 @@ fieldset{
   /* ===* attractionaside *=== */
   /* === search filter === */
   /* search filter progressbar */
-
   #progressbar {
     margin-bottom: 1em;
   }
   /* search filter progressbar end*/
-
 
 
   /* ===* secondcontainer *=== */
@@ -1547,21 +1923,36 @@ fieldset{
   }
 
 }
-
-
-@media screen and (max-width: 569px)and (min-width: 375px)  {
-
+@media screen and (max-width: 569px)  {
   /* ===* heardercontainer rightwrap*=== */
   /* setcontrol */
   .setcontrol{
     top:0.1%;
   }
+
   /* ===* nav *=== *//* ===* ul li *=== */
   /* === ulwrap === */
   .ulwrap2 {
     box-shadow: var(--shadowtop);
   }
 
+  .menuclick::before{
+    height: 50%;
+    width: 50%;
+    top:22%;
+    left: 15%;
+
+  }
+  
+  .menuclick{
+    padding: 0em;
+    padding-left: 1.3em;
+  }
+
+
+}
+
+@media screen and (max-width: 569px)and (min-width: 375px)  {
    /* ===* maincontainer *=== */
   /* === guidedaside === */
   .guidedaside .card:not(:first-child ){
@@ -1580,17 +1971,11 @@ fieldset{
   .topictags{
     grid-template-columns: repeat(auto-fit, minmax(33.3%, 1fr));
   }
-
   /* search filter tag end */
 }
 
 
 @media screen and (max-width: 375px) and (min-width: 280px)  {
-  /* ===* heardercontainer rightwrap*=== */
-  /* setcontrol */
-  .setcontrol{
-    top:0.1%;
-  }
    /* ===* maincontainer *=== */
   /* === guidedaside === */
   .guidedaside .card:not(:first-child ){
@@ -1613,12 +1998,12 @@ fieldset{
   
   /* ===* nav *=== *//* ===* ul li *=== */
   /* === ulwrap nav === */
-  .ulwrap1 .menuClick:first-of-type {
-    padding:0.3em;
+   .menuclick{
+    padding: 0.3em;
   }
 
-  .ulwrap2 .menuClick{
-    padding: 0.3em;
+  .menuclick::before{
+    display: none;
   }
 
   /* ===* maincontainer *=== */
